@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import MyRoutes from "./routers/routes"
+import Sidebar from "./components/Sidebar"
+import Container from '@mui/material/Container'
+import React, { useState } from "react"
+
+import Button from '@mui/material/Button'
+import { ThemeProvider, CssBaseline } from "@mui/material"
+import { modeLight, modeDark } from "./styles/Theme"
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [theme,setTheme] = useState('light');
+  
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Test/>
+      <ThemeProvider theme={theme === 'light' ? modeLight : modeDark}>
+        <CssBaseline />
+        <Container>
+            <Button variant="contained" color="primary" onClick={toggleTheme} >
+              Cambiar Tema
+            </Button>
+            <Sidebar />
+            <MyRoutes />  
+          </Container>
+      </ThemeProvider>    
     </>
   )
 }
