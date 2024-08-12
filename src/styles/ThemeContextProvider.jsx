@@ -4,10 +4,11 @@ import { modeLight, modeDark } from './Theme';
 
 // Crear un contexto para el tema
 const ThemeContext = createContext();
-
 export const useTheme = () => useContext(ThemeContext);
 
+
 export const ThemeContextProvider = ({ children }) => {
+  
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {

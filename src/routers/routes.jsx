@@ -9,9 +9,9 @@ import Noticias from '../pages/Noticias'
 function MyRoutes() {
     return (
         <Routes>
-                <Route path='/' element={ <Home/> } />
-                <Route path='/reglamentos' element={ <Reglamentos/> } />
-                <Route path='/noticias' element={ <Noticias/> } />
+            <Route path='/' element={ <Home/> } />
+            <Route path='/reglamentos' element={ <Reglamentos/> } />
+            <Route path='/noticias' element={ <Noticias/> } />
         </Routes>    
     )
 }

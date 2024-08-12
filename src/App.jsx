@@ -1,32 +1,24 @@
 import MyRoutes from "./routers/routes"
 import Sidebar from "./components/Sidebar"
 import Container from '@mui/material/Container'
-import React, { useState } from "react"
+import React from "react"
 
 import Button from '@mui/material/Button'
-import { ThemeProvider, CssBaseline } from "@mui/material"
-import { modeLight, modeDark } from "./styles/Theme"
+import { useTheme } from "./styles/ThemeContextProvider"
 
 function App() {
 
-  const [theme,setTheme] = useState('light');
-  
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  }
+  const {theme,toggleTheme} = useTheme();
 
   return (
     <>
-      <ThemeProvider theme={theme === 'light' ? modeLight : modeDark}>
-        <CssBaseline />
-        <Container>
-            <Button variant="contained" color="primary" onClick={toggleTheme} >
-              Cambiar Tema
-            </Button>
-            <Sidebar />
-            <MyRoutes />  
-          </Container>
-      </ThemeProvider>    
+      <Container>
+        <Button variant="contained" color="primary" onClick={toggleTheme} >
+          Cambiar Modo
+        </Button>
+        <Sidebar />
+        <MyRoutes />  
+      </Container>   
     </>
   )
 }

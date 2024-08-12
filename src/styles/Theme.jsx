@@ -2,44 +2,33 @@ import { createTheme } from '@mui/material/styles';
 
 export const modeLight = createTheme({
   palette: {
-    mode: 'light',  // Asegura que el modo sea explícitamente "light"
+    mode: 'light',
     primary: {
       main: '#00bca3',
     },
     secondary: {
-      main: '#ce93d8',
-      contrastText: '#ffffff',
-    },
-    text: {
-      primary: '#ce93d8',
-      secondary: '#ce93d8',
-      disabled: '#ce93d8',
+      main: '#000000',
     },
     background: {
-      default: '#5f928f',
-      paper: '#5f928f',
-    }
-  }
+      default: '#e0f7fa',
+    },
+    info: {
+      main: '#0288d1',
+    },
+  },
 });
 
 export const modeDark = createTheme({
   palette: {
-    mode: 'dark',  // Asegura que el modo sea explícitamente "dark"
+    mode: 'dark',
     primary: {
-      main: '#3f51b5',
+      main: '#00bca3',
     },
     secondary: {
-      main: '#00bca3',
-      contrastText: '#000000',
+      main: '#ffffff',
     },
-    text: {
-      primary: '#00897b',
-      secondary: '#00897b',
-      disabled: '#00897b',
-    },
-    background: {
-      default: '#000000',
-      paper: '#ffffff',  
+    info: {
+      main: '#0288d1',
     },
   },
 });
